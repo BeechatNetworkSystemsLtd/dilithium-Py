@@ -37,11 +37,11 @@ add_library(aes256ctr_ref ${AES256CTR_SRCS})
 add_subdirectory(lib/pybind11)
 
 # Dilithium 2
-pybind11_add_module(dilithium2_ref ${DILITHIUM_FIPS202_SRCS} "${SOURCE_DIR}/base58.c" "${SOURCE_DIR}/bindings.cpp")
-pybind11_add_module(dilithium2aes_ref ${DILITHIUM_NINETIES_SRCS} ${AES256CTR_SRCS} ${SHA2_SRCS} "${SOURCE_DIR}/base58.c" "${SOURCE_DIR}/bindings_aes.cpp")
-target_compile_definitions(dilithium2_ref PUBLIC DILITHIUM_MODE=2)
-target_compile_definitions(dilithium2aes_ref PUBLIC DILITHIUM_MODE=2 DILITHIUM_USE_AES)
-target_link_libraries(dilithium2_ref INTERFACE fips202_ref)
-target_link_libraries(dilithium2aes_ref INTERFACE aes256ctr_ref sha2_ref)
+pybind11_add_module(pydilithium ${DILITHIUM_FIPS202_SRCS} "${SOURCE_DIR}/base58.c" "${SOURCE_DIR}/bindings.cpp")
+pybind11_add_module(pydilithium_aes ${DILITHIUM_NINETIES_SRCS} ${AES256CTR_SRCS} ${SHA2_SRCS} "${SOURCE_DIR}/base58.c" "${SOURCE_DIR}/bindings_aes.cpp")
+target_compile_definitions(pydilithium PUBLIC DILITHIUM_MODE=2)
+target_compile_definitions(pydilithium_aes PUBLIC DILITHIUM_MODE=2 DILITHIUM_USE_AES)
+target_link_libraries(pydilithium INTERFACE fips202_ref)
+target_link_libraries(pydilithium_aes INTERFACE aes256ctr_ref sha2_ref)
 
 
