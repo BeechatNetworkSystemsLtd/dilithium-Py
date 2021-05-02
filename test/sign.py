@@ -29,10 +29,16 @@ signed_message = pydilithium.pqcrystals_dilithium2_ref(message, len(message))
 print("Signed message:")
 print(signed_message)
 print("")
+f = open('signed.message', 'w')
+f.write(signed_message)
+f.close()
 
 # Step 3: Check message
 f = open('key.public', 'r')
 pk = f.readline()
+f.close()
+f = open('signed.message', 'r')
+signed_message = f.readline()
 f.close()
 
 pydilithium.pqcrystals_set_pk(pk)
