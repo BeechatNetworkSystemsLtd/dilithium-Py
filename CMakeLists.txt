@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 project(pydilithium C CXX ASM)
-set(CMAKE_SYSTEM_NAME Linux)
 
 # Tell cmake that headers are in alse in source_dir
 set(SOURCE_DIR "src/ref")
