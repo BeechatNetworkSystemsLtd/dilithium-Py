@@ -1,4 +1,4 @@
-# PY-PQC
+# Dilithium-Py
 
 This repository contains the reference implementation of the [Dilithium](https://github.com/pq-crystals/dilithium) Post Quantum Cryptography algorithms usable through Python Native Interface wrappers.
 
